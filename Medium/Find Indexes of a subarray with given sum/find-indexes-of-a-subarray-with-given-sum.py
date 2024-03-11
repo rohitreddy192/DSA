@@ -4,17 +4,13 @@
 class Solution:
     def subArraySum(self,arr, n, s): 
         sum = 0
-        maxi = 0
         mpp = {}
+        mpp[0] = 0
         for i in range(n):
             sum += arr[i]
-            if sum == s:
-                return [1,i+1]
-            else:
-                rem = sum - s 
-                if rem in mpp:
-                    return [mpp[rem]+1, i+1]
-                mpp[sum] = i+1
+            if sum -s in mpp:
+                return [mpp[sum-s] + 1,i+1]
+            mpp[sum] = i+1
         return [-1]
        #Write your code here
 
